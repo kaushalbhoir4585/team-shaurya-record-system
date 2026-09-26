@@ -1,0 +1,674 @@
+/* =========================================
+   TEAM SHAURYA
+   DIGITAL HEALTH RECORD SYSTEM
+   COMMON STYLES
+========================================= */
+
+:root {
+    --ts-navy: #102a43;
+    --ts-dark: #071827;
+    --ts-orange: #e67e22;
+    --ts-gold: #f4a62a;
+    --ts-cream: #fffaf3;
+    --ts-light: #f7f4ee;
+    --ts-white: #ffffff;
+    --ts-text: #243447;
+    --ts-muted: #6b7280;
+    --ts-border: #e7e1d8;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+
+    background: var(--ts-light);
+
+    color: var(--ts-text);
+}
+
+
+/* =========================================
+   DESKTOP SIDEBAR
+========================================= */
+
+.sidebar {
+    min-height: 100vh;
+
+    background: linear-gradient(
+        180deg,
+        var(--ts-dark),
+        var(--ts-navy)
+    );
+
+    color: var(--ts-white);
+
+    padding-top: 25px;
+
+    box-shadow: 4px 0 18px rgba(7, 24, 39, 0.12);
+}
+
+
+/* =========================================
+   SIDEBAR TITLE
+========================================= */
+
+.sidebar h4 {
+    font-weight: 700;
+
+    padding: 0 15px;
+
+    margin-bottom: 8px;
+
+    color: var(--ts-white);
+
+    letter-spacing: 0.3px;
+}
+
+.sidebar h4 i {
+    margin-right: 8px;
+
+    color: var(--ts-orange);
+}
+
+
+/* Small subtitle under brand */
+
+.sidebar .sidebar-subtitle {
+    padding: 0 15px;
+
+    margin-bottom: 25px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 12px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   SIDEBAR LINKS
+========================================= */
+
+.sidebar a {
+    display: flex;
+
+    align-items: center;
+
+    color: rgba(255, 255, 255, 0.88);
+
+    text-decoration: none;
+
+    padding: 12px 15px;
+
+    margin: 5px 10px;
+
+    border-radius: 9px;
+
+    transition: all 0.25s ease;
+}
+
+
+/* Sidebar icons */
+
+.sidebar a i {
+    font-size: 18px;
+
+    width: 30px;
+
+    color: var(--ts-orange);
+
+    transition: 0.25s ease;
+}
+
+
+/* Hover */
+
+.sidebar a:hover {
+    background: rgba(230, 126, 34, 0.15);
+
+    color: var(--ts-white);
+
+    transform: translateX(3px);
+}
+
+.sidebar a:hover i {
+    color: var(--ts-gold);
+}
+
+
+/* Active */
+
+.sidebar a.active {
+    background: var(--ts-orange);
+
+    color: var(--ts-white);
+
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.25);
+}
+
+.sidebar a.active i {
+    color: var(--ts-white);
+}
+
+
+/* =========================================
+   MOBILE NAVBAR
+========================================= */
+
+.mobile-navbar {
+    height: 62px;
+
+    background: linear-gradient(
+        90deg,
+        var(--ts-dark),
+        var(--ts-navy)
+    );
+
+    color: var(--ts-white);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 16px;
+
+    box-shadow: 0 3px 12px rgba(7, 24, 39, 0.2);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1030;
+}
+
+
+/* Mobile brand */
+
+.mobile-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+.mobile-brand i {
+    font-size: 23px;
+
+    color: var(--ts-orange);
+}
+
+
+/* =========================================
+   HAMBURGER BUTTON
+========================================= */
+
+.mobile-menu-button {
+    border: none;
+
+    background: transparent;
+
+    color: var(--ts-white);
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    padding: 2px 5px;
+
+    cursor: pointer;
+}
+
+.mobile-menu-button:hover {
+    color: var(--ts-gold);
+}
+
+.mobile-menu-button:focus {
+    outline: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================
+   MOBILE SIDEBAR / OFFCANVAS
+========================================= */
+
+.mobile-sidebar {
+    width: 280px !important;
+
+    background: linear-gradient(
+        180deg,
+        var(--ts-dark),
+        var(--ts-navy)
+    );
+
+    color: var(--ts-white);
+}
+
+
+/* Mobile sidebar header */
+
+.mobile-sidebar .offcanvas-header {
+    padding: 20px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mobile-sidebar .offcanvas-title {
+    font-weight: 700;
+
+    color: var(--ts-white);
+}
+
+.mobile-sidebar .offcanvas-title i {
+    margin-right: 8px;
+
+    color: var(--ts-orange);
+}
+
+
+/* =========================================
+   MOBILE MENU LINKS
+========================================= */
+
+.mobile-menu-link {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    text-decoration: none;
+
+    padding: 14px 15px;
+
+    margin-bottom: 5px;
+
+    border-radius: 9px;
+
+    font-size: 16px;
+
+    transition: all 0.25s ease;
+}
+
+
+/* Mobile icons */
+
+.mobile-menu-link i {
+    width: 25px;
+
+    font-size: 18px;
+
+    color: var(--ts-orange);
+}
+
+
+/* Mobile hover */
+
+.mobile-menu-link:hover {
+    background: rgba(230, 126, 34, 0.15);
+
+    color: var(--ts-white);
+}
+
+
+/* =========================================
+   COMMON MAIN CONTENT
+========================================= */
+
+.main-content {
+    padding: 30px;
+
+    background: var(--ts-light);
+
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   COMMON CARDS
+========================================= */
+
+.card {
+    border: 1px solid var(--ts-border);
+
+    border-radius: 14px;
+
+    background: var(--ts-white);
+
+    box-shadow:
+        0 4px 16px
+        rgba(16, 42, 67, 0.06);
+
+    overflow: hidden;
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow:
+        0 7px 22px
+        rgba(16, 42, 67, 0.10);
+}
+
+
+/* =========================================
+   CARD HEADER
+========================================= */
+
+.card-header {
+    background: var(--ts-white);
+
+    border-bottom: 1px solid var(--ts-border);
+
+    font-weight: 600;
+
+    color: var(--ts-navy);
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn {
+    border-radius: 8px;
+
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Main orange buttons */
+
+.btn-primary {
+    background: var(--ts-orange);
+
+    border-color: var(--ts-orange);
+}
+
+.btn-primary:hover {
+    background: #cf6d17;
+
+    border-color: #cf6d17;
+
+    transform: translateY(-1px);
+}
+
+
+/* Outline buttons */
+
+.btn-outline-primary {
+    color: var(--ts-orange);
+
+    border-color: var(--ts-orange);
+}
+
+.btn-outline-primary:hover {
+    background: var(--ts-orange);
+
+    border-color: var(--ts-orange);
+
+    color: var(--ts-white);
+}
+
+
+/* =========================================
+   FORM CONTROLS
+========================================= */
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+
+    min-height: 42px;
+
+    border: 1px solid #d8d2c8;
+
+    background: var(--ts-white);
+
+    color: var(--ts-text);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--ts-orange);
+
+    box-shadow:
+        0 0 0 0.2rem
+        rgba(230, 126, 34, 0.15);
+}
+
+
+/* =========================================
+   FORM SECTION
+========================================= */
+
+.form-section {
+    background: var(--ts-white);
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    border: 1px solid var(--ts-border);
+
+    box-shadow:
+        0 4px 16px
+        rgba(16, 42, 67, 0.06);
+}
+
+
+/* =========================================
+   FORM LABELS
+========================================= */
+
+.form-label {
+    color: var(--ts-navy);
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   HEADINGS
+========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--ts-navy);
+}
+
+
+/* =========================================
+   BADGES
+========================================= */
+
+.badge {
+    border-radius: 6px;
+
+    padding: 6px 9px;
+}
+
+
+/* Orange badge */
+
+.badge.bg-primary {
+    background-color: var(--ts-orange) !important;
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+    transition: 0.2s ease;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767.98px) {
+
+    .main-content {
+        padding: 20px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 576px) {
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .form-section {
+        padding: 18px;
+    }
+
+}
+/* =========================================
+   MOBILE SIDEBAR WIDTH FIX
+========================================= */
+
+@media (max-width: 767.98px) {
+
+    .offcanvas {
+        width: 285px !important;
+        max-width: 85vw;
+        background: var(--ts-navy) !important;
+    }
+
+    .offcanvas-header {
+        padding: 20px 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .offcanvas-title {
+        color: var(--ts-white);
+        font-weight: 700;
+    }
+
+    .offcanvas-title i {
+        color: var(--ts-orange);
+        margin-right: 8px;
+    }
+
+    .offcanvas-body {
+        padding: 15px 12px;
+    }
+
+    .mobile-menu-link {
+        display: flex !important;
+        align-items: center;
+        gap: 12px;
+
+        width: 100%;
+        padding: 13px 15px;
+        margin-bottom: 6px;
+
+        color: #ffffff !important;
+        text-decoration: none;
+
+        border-radius: 10px;
+
+        transition: all 0.2s ease;
+    }
+
+    .mobile-menu-link i {
+        width: 22px;
+        font-size: 18px;
+        color: var(--ts-orange);
+    }
+
+    .mobile-menu-link:hover,
+    .mobile-menu-link:active {
+        background: rgba(230, 126, 34, 0.15);
+        color: var(--ts-orange) !important;
+    }
+
+    .mobile-menu-link:hover i,
+    .mobile-menu-link:active i {
+        color: var(--ts-gold);
+    }
+
+    .btn-close {
+        opacity: 1;
+    }
+}
+
+/* Hide desktop sidebar on mobile */
+@media (max-width: 767.98px) {
+    .sidebar {
+        display: none !important;
+    }
+
+    .dashboard-content {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* Compact mobile menu button */
+@media (max-width: 767.98px) {
+    .mobile-navbar {
+        height: 56px;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        background: var(--ts-navy);
+    }
+
+    .mobile-menu-btn {
+        border: none;
+        background: transparent;
+        color: white;
+        font-size: 28px;
+        padding: 4px 8px;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    .mobile-menu-btn:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .mobile-navbar-title {
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        margin-left: 10px;
+    }
+}

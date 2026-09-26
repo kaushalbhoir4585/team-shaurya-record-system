@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Family - Digital Health Record</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- Add Family CSS -->
+    <link rel="stylesheet" href="css/add-family.css">
+</head>
+<body>
+
+<div class="container-fluid">
+    <!-- MOBILE NAVBAR -->
+    <nav class="mobile-navbar d-md-none">
+        <button class="mobile-menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar">
+            <i class="bi bi-list"></i>
+        </button>
+        <span class="mobile-navbar-title">
+            <i class="bi bi-heart-pulse"></i>
+            Health Record
+        </span>
+    </nav>
+
+    <!-- MOBILE SIDEBAR -->
+    <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileSidebarLabel"><i class="bi bi-heart-pulse"></i> Health Record</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <a href="dashboard.html" class="mobile-menu-link"><i class="bi bi-speedometer2"></i> Dashboard</a>
+            <a href="add-family.html" class="mobile-menu-link"><i class="bi bi-person-plus"></i> Add Family</a>
+            <a href="families.html" class="mobile-menu-link"><i class="bi bi-people"></i> Families</a>
+            <a href="profile.html" class="mobile-menu-link"><i class="bi bi-person-circle"></i> Profile</a>
+            <a href="#" class="mobile-menu-link" onclick="logoutUser(); return false;"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- DESKTOP SIDEBAR -->
+        <div class="col-md-3 col-lg-2 sidebar p-3">
+            <h4 class="mb-4"><i class="bi bi-heart-pulse"></i> Health Record</h4>
+            <a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+            <a href="add-family.html"><i class="bi bi-person-plus"></i> Add Family</a>
+            <a href="families.html"><i class="bi bi-people"></i> Families</a>
+            <a href="profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+            <a href="#" onclick="logoutUser(); return false;"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="col-md-9 col-lg-10 dashboard-content">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2><i class="bi bi-person-plus"></i> Add New Family</h2>
+                    <p class="text-muted">Enter the family and member information</p>
+                </div>
+                <a href="dashboard.html" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back</a>
+            </div>
+
+            <!-- FAMILY INFORMATION -->
+            <div class="form-section">
+                <h4 class="mb-4"><i class="bi bi-house-heart"></i> Family Information</h4>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Family ID</label>
+                        <input type="text" class="form-control" id="familyId" readonly>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Head of Family <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="familyHead" oninput="syncHeadName()" placeholder="Name of Family Head" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Contact Number</label>
+                        <input type="tel" id="familyContact" class="form-control" placeholder="Enter mobile number" maxlength="10">
+                    </div>
+                    <div class="col-md-8">
+                        <label class="form-label">Address <span class="text-danger">*</span></label>
+                        <textarea id="familyAddress" class="form-control" rows="2" placeholder="Enter complete address" required></textarea>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Area / Ward</label>
+                        <input type="text" id="familyArea" class="form-control" placeholder="Enter area / ward">
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAMILY MEMBERS -->
+            <div class="form-section">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h4><i class="bi bi-people"></i> Family Members</h4>
+                        <p class="text-muted mb-0">Add all members belonging to this family.</p>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary" onclick="addMember()"><i class="bi bi-person-plus"></i> Add Member</button>
+                </div>
+
+                <div id="membersContainer">
+                    <!-- MEMBER 1 -->
+                    <div class="member-card">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5><i class="bi bi-person"></i> <span class="member-number">Member 1</span></h5>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Full Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control member-name" id="headMemberName" placeholder="Family Head name" readonly required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Date of Birth</label>
+                                <input type="date" class="form-control member-dob">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Gender</label>
+                                <select class="form-select member-gender" onchange="updatePregnancyFields(this.closest('.member-card'))">
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Relation with Head</label>
+                                <select class="form-select member-relation" id="headMemberRelation">
+                                    <option value="Head" selected>Head of Family</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Mobile Number</label>
+                                <input type="tel" class="form-control member-mobile" placeholder="10 digit number" maxlength="10">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Blood Group</label>
+                                <select class="form-select member-blood">
+                                    <option value="">Select Blood Group</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Aadhaar Number <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control member-aadhaar" placeholder="Enter 12 digit Aadhaar Number" maxlength="12" inputmode="numeric" autocomplete="off" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">ABHA Number</label>
+                                <input type="text" class="form-control member-abha" placeholder="Enter ABHA Number (Optional)" autocomplete="off">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Ayushman Number</label>
+                                <input type="text" class="form-control member-ayushman" placeholder="Enter Ayushman Number (Optional)" autocomplete="off">
+                            </div>
+
+                            <!-- HEALTH INFORMATION -->
+                            <div class="col-12">
+                                <hr>
+                                <h6 class="text-primary"><i class="bi bi-heart-pulse"></i> Health Information</h6>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">BP Patient</label>
+                                <select class="form-select member-bp">
+                                    <option value="No">No</option>
+                                    <option value="Yes">Yes</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Diabetes</label>
+                                <select class="form-select member-diabetes">
+                                    <option value="No">No</option>
+                                    <option value="Yes">Yes</option>
+                                </select>
+                            </div>
+                            
+                            <!-- PREGNANCY -->
+                            <div class="col-md-4 pregnancy-status-box">
+                                <label class="form-label">Pregnancy Status</label>
+                                <select class="form-select member-pregnancy" onchange="updatePregnancyFields(this.closest('.member-card'))">
+                                    <option value="Not Applicable">Not Applicable</option>
+                                    <option value="Not Pregnant">Not Pregnant</option>
+                                    <option value="Pregnant">Pregnant</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 pregnancy-details" style="display:none;">
+                                <div class="p-3 border rounded bg-light">
+                                    <h6 class="text-primary mb-3"><i class="bi bi-person-heart"></i> Pregnancy Details</h6>
+                                    <div class="row g-3">
+                                        <div class="col-md-4">
+                                            <label class="form-label">LMP (Last Menstrual Period)</label>
+                                            <input type="date" class="form-control pregnancy-lmp">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">Expected Delivery Date</label>
+                                            <input type="date" class="form-control pregnancy-edd">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">Pregnancy Trimester</label>
+                                            <select class="form-select pregnancy-trimester">
+                                                <option value="">Select Trimester</option>
+                                                <option value="1st Trimester">1st Trimester</option>
+                                                <option value="2nd Trimester">2nd Trimester</option>
+                                                <option value="3rd Trimester">3rd Trimester</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">ANC Visits</label>
+                                            <input type="number" class="form-control pregnancy-anc" min="0" placeholder="Number of ANC visits">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">High-Risk Pregnancy</label>
+                                            <select class="form-select pregnancy-high-risk">
+                                                <option value="No">No</option>
+                                                <option value="Yes">Yes</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">Iron / Folic Acid</label>
+                                            <select class="form-select pregnancy-ifa">
+                                                <option value="No">No</option>
+                                                <option value="Yes">Yes</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">Calcium</label>
+                                            <select class="form-select pregnancy-calcium">
+                                                <option value="No">No</option>
+                                                <option value="Yes">Yes</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">Pregnancy Notes</label>
+                                            <textarea class="form-control pregnancy-notes" rows="2" placeholder="Enter pregnancy-related notes"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CHILD / VACCINATION -->
+                            <div class="col-12">
+                                <hr>
+                                <h6 class="text-success"><i class="bi bi-capsule"></i> Child / Vaccination Information</h6>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Child</label>
+                                <select class="form-select member-child">
+                                    <option value="No">No</option>
+                                    <option value="Yes">Yes</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Last Vaccination Date</label>
+                                <input type="date" class="form-control member-vaccine-date">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Next Vaccination Due</label>
+                                <input type="date" class="form-control member-next-vaccine">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Additional Health Notes</label>
+                                <textarea class="form-control member-notes" rows="2" placeholder="Enter any important health information"></textarea>
+                            </div>
+
+                            <!-- OTHER DISEASES -->
+                            <div class="col-12">
+                                <hr>
+                                <h6 class="text-danger"><i class="bi bi-clipboard2-pulse"></i> Other Diseases / Special Health Conditions</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Disease / Health Condition</label>
+                                <select class="form-select member-disease">
+                                    <option value="None">None</option>
+                                    <option value="TB">TB / क्षयरोग</option>
+                                    <option value="Asthma">Asthma</option>
+                                    <option value="Epilepsy">Epilepsy</option>
+                                    <option value="Heart Disease">Heart Disease</option>
+                                    <option value="Cancer">Cancer</option>
+                                    <option value="Kidney Disease">Kidney Disease</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 other-disease-name-box" style="display:none;">
+                                <label class="form-label">Other Disease / Condition</label>
+                                <input type="text" class="form-control member-other-disease" placeholder="Enter disease or health condition">
+                            </div>
+                            <div class="col-md-6 tb-status-box" style="display:none;">
+                                <label class="form-label">TB Status</label>
+                                <select class="form-select member-tb-status">
+                                    <option value="">Select TB Status</option>
+                                    <option value="TB Confirmed - Treatment Ongoing">TB Confirmed — Treatment Ongoing</option>
+                                    <option value="TB Suspected - Sample Sent">TB Suspected — Sample Sent</option>
+                                    <option value="TB Suspected - Sample To Be Sent">TB Suspected — Sample To Be Sent</option>
+                                    <option value="TB Treatment Completed">TB Treatment Completed</option>
+                                    <option value="TB History - Previously Treated">TB History — Previously Treated</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Disease / Special Health Notes</label>
+                                <textarea class="form-control member-disease-notes" rows="2" placeholder="Enter any important information about disease or health condition"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAVE BUTTONS -->
+            <div class="form-section">
+                <div class="d-flex justify-content-end gap-2">
+                    <a href="dashboard.html" class="btn btn-secondary"><i class="bi bi-x-circle"></i> Cancel</a>
+                    <button type="button" class="btn btn-primary" onclick="saveFamily()"><i class="bi bi-save"></i> Save Family</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/add-family.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Family - Digital Health Record</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- View Family CSS -->
+    <link rel="stylesheet" href="css/view-family.css">
+</head>
+<body>
+
+<div class="container-fluid">
+    <!-- MOBILE NAVBAR -->
+    <nav class="mobile-navbar d-md-none">
+        <button class="mobile-menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar">
+            <i class="bi bi-list"></i>
+        </button>
+        <span class="mobile-navbar-title">
+            <i class="bi bi-heart-pulse"></i>
+            Health Record
+        </span>
+    </nav>
+
+    <!-- MOBILE SIDEBAR -->
+    <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileSidebarLabel"><i class="bi bi-heart-pulse"></i> Health Record</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <a href="dashboard.html" class="mobile-menu-link"><i class="bi bi-speedometer2"></i> Dashboard</a>
+            <a href="add-family.html" class="mobile-menu-link"><i class="bi bi-person-plus"></i> Add Family</a>
+            <a href="families.html" class="mobile-menu-link"><i class="bi bi-people"></i> Families</a>
+            <a href="profile.html" class="mobile-menu-link"><i class="bi bi-person-circle"></i> Profile</a>
+            <a href="#" class="mobile-menu-link" onclick="logoutUser(); return false;"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </div>
+    </div>
+
+    <!-- Top Header -->
+    <div class="view-page-header">
+        <div>
+            <h2><i class="bi bi-people-fill"></i> Family Details</h2>
+            <p class="text-muted mb-0">View complete family and health information</p>
+        </div>
+        <div class="header-actions">
+            <button type="button" class="btn btn-outline-primary" onclick="backToFamilies()"><i class="bi bi-arrow-left"></i> Back to Families</button>
+            <button type="button" class="btn btn-warning" onclick="editCurrentFamily()"><i class="bi bi-pencil"></i> Edit Family</button>
+            <button type="button" class="btn btn-danger" onclick="deleteCurrentFamily()"><i class="bi bi-trash"></i> Delete</button>
+        </div>
+    </div>
+
+    <!-- Family Information -->
+    <div class="view-section">
+        <div class="section-title"><i class="bi bi-house-heart"></i> Family Information</div>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="info-box">
+                    <div class="info-label"><i class="bi bi-card-text"></i> Family ID</div>
+                    <div class="info-value family-id-display" id="viewFamilyId">-</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info-box">
+                    <div class="info-label"><i class="bi bi-person-fill"></i> Head of Family</div>
+                    <div class="info-value" id="viewFamilyHead">-</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info-box">
+                    <div class="info-label"><i class="bi bi-telephone-fill"></i> Contact Number</div>
+                    <div class="info-value" id="viewFamilyContact">-</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info-box">
+                    <div class="info-label"><i class="bi bi-geo-alt-fill"></i> Area</div>
+                    <div class="info-value" id="viewFamilyArea">-</div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="info-box">
+                    <div class="info-label"><i class="bi bi-house"></i> Family Address</div>
+                    <div class="info-value" id="viewFamilyAddress">-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Members Section -->
+    <div class="view-section">
+        <div class="members-header">
+            <div>
+                <div class="section-title mb-1"><i class="bi bi-people"></i> Family Members</div>
+                <p class="text-muted mb-0">Complete personal and health information of family members</p>
+            </div>
+            <div class="member-count-badge">
+                <i class="bi bi-people-fill"></i> <span id="viewMemberCount">0</span> Members
+            </div>
+        </div>
+        <div id="viewMembersContainer"></div>
+    </div>
+
+    <!-- Bottom Buttons -->
+    <div class="bottom-actions">
+        <button type="button" class="btn btn-outline-primary" onclick="backToFamilies()"><i class="bi bi-arrow-left"></i> Back to Families</button>
+        <button type="button" class="btn btn-warning" onclick="editCurrentFamily()"><i class="bi bi-pencil"></i> Edit Family</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/view-family.js"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+/* =========================================
+   PROFILE PAGE
+   ========================================= */
+
+
+/* Profile Icon */
+
+.profile-icon {
+
+    width: 80px;
+    height: 80px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e8f1ff;
+
+    color: #0d6efd;
+
+    font-size: 38px;
+
+}
+
+
+/* =========================================
+   PROFILE CARD
+   ========================================= */
+
+.profile-card {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+
+    overflow: hidden;
+
+}
+
+
+/* Card Header */
+
+.profile-card-header {
+
+    background: #0d6efd;
+
+    color: #ffffff;
+
+    padding: 18px 25px;
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+}
+
+
+/* Card Body */
+
+.profile-card-body {
+
+    padding: 30px;
+
+}
+
+
+/* =========================================
+   PROFILE INFORMATION
+   ========================================= */
+
+.profile-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #eeeeee;
+
+}
+
+
+.profile-info:last-of-type {
+
+    border-bottom: none;
+
+}
+
+
+/* Information Icon */
+
+.profile-info-icon {
+
+    width: 55px;
+    height: 55px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #f0f6ff;
+
+    color: #0d6efd;
+
+    font-size: 25px;
+
+}
+
+
+/* Information Label */
+
+.profile-info small {
+
+    display: block;
+
+    color: #6c757d;
+
+    margin-bottom: 4px;
+
+}
+
+
+/* Information Value */
+
+.profile-info h5 {
+
+    margin: 0;
+
+    font-weight: 600;
+
+    color: #212529;
+
+}
+
+
+/* =========================================
+   MODAL
+   ========================================= */
+
+.modal-content {
+
+    border: none;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+}
+
+
+.modal-header {
+
+    border-bottom: none;
+
+}
+
+
+.modal-footer {
+
+    border-top: 1px solid #eeeeee;
+
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 576px) {
+
+    .profile-card-body {
+
+        padding: 20px;
+
+    }
+
+
+    .profile-info {
+
+        gap: 12px;
+
+    }
+
+
+    .profile-info-icon {
+
+        width: 48px;
+
+        height: 48px;
+
+        font-size: 21px;
+
+    }
+
+}
+/* =================================
+   PROFILE PAGE NAVIGATION
+================================= */
+
+.profile-main {
+    padding: 40px 30px;
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+
+/* Active mobile menu */
+
+.active-mobile {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+
+/* =================================
+   MOBILE PROFILE
+================================= */
+
+@media (max-width: 767.98px) {
+
+    .profile-main {
+        padding: 25px 15px;
+    }
+
+    .profile-card {
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Digital Health Record</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Project CSS -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<!-- MOBILE TOP NAVBAR -->
+<nav class="mobile-navbar d-md-none">
+    <div class="mobile-brand">
+        <i class="bi bi-heart-pulse"></i>
+        <span>Health Record</span>
+    </div>
+    <button class="mobile-menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
+        <i class="bi bi-list"></i>
+    </button>
+</nav>
+
+<!-- MOBILE SIDEBAR / OFFCANVAS -->
+<div class="offcanvas offcanvas-start mobile-sidebar" tabindex="-1" id="mobileSidebar">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title"><i class="bi bi-heart-pulse"></i> Health Record</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <a href="dashboard.html" class="mobile-menu-link"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <!-- FIXED LINKS -->
+        <a href="#" class="mobile-menu-link" onclick="goToAddFamily(); return false;"><i class="bi bi-person-plus"></i> Add Family</a>
+        <a href="families.html" class="mobile-menu-link"><i class="bi bi-people"></i> Families</a>
+        <a href="profile.html" class="mobile-menu-link"><i class="bi bi-person-circle"></i> Profile</a>
+        <a href="#" class="mobile-menu-link" onclick="logoutUser()"><i class="bi bi-box-arrow-right"></i> Logout</a>
+    </div>
+</div>
+
+<!-- MAIN PAGE -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- DESKTOP SIDEBAR -->
+        <div class="col-md-3 col-lg-2 sidebar p-3 d-none d-md-block">
+            <h4 class="mb-4"><i class="bi bi-heart-pulse"></i> Health Record</h4>
+            <a href="dashboard.html" class="active"><i class="bi bi-speedometer2"></i> Dashboard</a>
+            <!-- FIXED LINKS -->
+            <a href="#" onclick="goToAddFamily(); return false;"><i class="bi bi-person-plus"></i> Add Family</a>
+            <a href="families.html"><i class="bi bi-people"></i> Families</a>
+            <a href="profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+            <a href="#" onclick="logoutUser()"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="col-md-9 col-lg-10 dashboard-content">
+            <!-- PAGE HEADER -->
+            <div class="dashboard-header">
+                <div>
+                    <h2>Dashboard</h2>
+                    <p class="welcome-text">Welcome, <span id="ashaName">Community Health Worker</span></p>
+                    <p class="location-text">
+                        Village: <strong id="dashboardVillage">-</strong> <span class="separator">|</span>
+                        Sub-PHC: <strong id="dashboardSubPhc">-</strong> <span class="separator">|</span>
+                        PHC: <strong id="dashboardPhc">-</strong>
+                    </p>
+                </div>
+                <!-- FIXED LINK -->
+                <a href="#" onclick="goToAddFamily(); return false;" class="btn btn-primary add-family-top"><i class="bi bi-plus-lg"></i> Add New Family</a>
+            </div>
+
+            <!-- STATISTICS -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-6 col-xl-4"><div class="stat-card"><div class="d-flex justify-content-between align-items-center"><div><p class="text-muted mb-1">Total Families</p><div class="stat-number" id="totalFamilies">0</div></div><div class="stat-icon bg-primary text-primary"><i class="bi bi-house-heart"></i></div></div></div></div>
+                <div class="col-md-6 col-xl-4"><div class="stat-card"><div class="d-flex justify-content-between align-items-center"><div><p class="text-muted mb-1">Total Population</p><div class="stat-number" id="totalPopulation">0</div></div><div class="stat-icon bg-success-subtle text-success"><i class="bi bi-people"></i></div></div></div></div>
+                <div class="col-md-6 col-xl-4"><div class="stat-card"><div class="d-flex justify-content-between align-items-center"><div><p class="text-muted mb-1">Pregnant Women</p><div class="stat-number" id="pregnantWomen">0</div></div><div class="stat-icon bg-danger-subtle text-danger"><i class="bi bi-heart"></i></div></div></div></div>
+                <div class="col-md-6 col-xl-4"><div class="stat-card"><div class="d-flex justify-content-between align-items-center"><div><p class="text-muted mb-1">Children</p><div class="stat-number" id="children">0</div></div><div class="stat-icon bg-warning-subtle text-warning"><i class="bi bi-person"></i></div></div></div></div>
+                <div class="col-md-6 col-xl-4"><div class="stat-card"><div class="d-flex justify-content-between align-items-center"><div><p class="text-muted mb-1">BP Patients</p><div class="stat-number" id="bpPatients">0</div></div><div class="stat-icon bg-info-subtle text-info"><i class="bi bi-heart-pulse"></i></div></div></div></div>
+                <div class="col-md-6 col-xl-4"><div class="stat-card"><div class="d-flex justify-content-between align-items-center"><div><p class="text-muted mb-1">Vaccinations Due</p><div class="stat-number" id="vaccinationsDue">0</div></div><div class="stat-icon bg-secondary-subtle text-secondary"><i class="bi bi-capsule"></i></div></div></div></div>
+            </div>
+
+            <!-- QUICK ACTIONS (UPDATED TO 4 COLUMNS) -->
+            <div class="form-section">
+                <h4 class="mb-3">Quick Actions</h4>
+                <div class="row g-3">
+                    <div class="col-sm-6 col-lg-3">
+                        <a href="#" onclick="goToAddFamily(); return false;" class="btn btn-outline-primary w-100 p-3">
+                            <i class="bi bi-person-plus fs-4"></i><br>Add New Family
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <a href="families.html" class="btn btn-outline-success w-100 p-3">
+                            <i class="bi bi-people fs-4"></i><br>View Families
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <button class="btn btn-outline-success w-100 p-3" onclick="generateVillageReportExcel()">
+                            <i class="bi bi-file-earmark-excel fs-4"></i><br>Export to Excel
+                        </button>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <button class="btn btn-outline-danger w-100 p-3" onclick="generateVillageReportPDF()">
+                            <i class="bi bi-file-earmark-pdf fs-4"></i><br>Export to PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-5">
+                <div class="footer-brand">
+                    <img src="images/NewLogo.png" alt="TEAM SHAURYA">
+                    <div><h3>TEAM SHAURYA</h3><p>Courage • Service • Technology</p></div>
+                </div>
+                <p class="footer-description">A student initiative focused on rural hygiene, education, community service and technology-driven solutions.</p>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="../TEAM-SHAURYA-WEBSITE/index.html">Home</a></li>
+                    <li><a href="../TEAM-SHAURYA-WEBSITE/index.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-lg-4">
+                <h4>Digital Health System</h4>
+                <a href="../DigitalHealthRecordSystem/index.html" class="footer-login-btn"><i class="bi bi-shield-lock-fill"></i> ASHA Data Entry Login</a>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-bottom">
+            <p>© <span id="currentYear"></span> TEAM SHAURYA. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- PDF Generation Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+<!-- Excel Generation Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<!-- Project JS -->
+<script src="js/common.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

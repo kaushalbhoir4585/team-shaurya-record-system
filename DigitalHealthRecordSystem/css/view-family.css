@@ -1,0 +1,366 @@
+/* =========================================
+   VIEW FAMILY PAGE
+   Digital Health Record System
+========================================= */
+
+
+/* Page */
+
+body {
+    background-color: #f5f7fb;
+}
+
+
+/* Main Header */
+
+.view-page-header {
+    background: white;
+    margin: 25px;
+    padding: 25px 30px;
+    border-radius: 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.view-page-header h2 {
+    margin: 0;
+    font-weight: 700;
+    color: #212529;
+}
+
+.view-page-header h2 i {
+    color: #0d6efd;
+    margin-right: 8px;
+}
+
+
+/* Header Buttons */
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+/* Main Sections */
+
+.view-section {
+    background: white;
+
+    margin: 25px;
+    padding: 25px 30px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Section Title */
+
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #0d6efd;
+
+    margin-bottom: 25px;
+}
+
+.section-title i {
+    margin-right: 8px;
+}
+
+
+/* Information Box */
+
+.info-box {
+    background-color: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    height: 100%;
+}
+
+.info-label {
+    color: #6c757d;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+
+    text-transform: uppercase;
+}
+
+.info-label i {
+    margin-right: 5px;
+}
+
+.info-value {
+    font-size: 17px;
+
+    font-weight: 600;
+
+    color: #212529;
+
+    word-break: break-word;
+}
+
+.family-id-display {
+    color: #0d6efd;
+}
+
+
+/* Members Header */
+
+.members-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+/* Member Count */
+
+.member-count-badge {
+    background-color: #e7f1ff;
+
+    color: #0d6efd;
+
+    border-radius: 10px;
+
+    padding: 10px 16px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.member-count-badge i {
+    margin-right: 5px;
+}
+
+
+/* Individual Member Card */
+
+.view-member-card {
+    background-color: #ffffff;
+
+    border: 1px solid #dee2e6;
+
+    border-left: 5px solid #0d6efd;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Member Header */
+
+.member-view-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.member-view-header h4 {
+    margin: 5px 0 0;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #212529;
+}
+
+.member-view-number {
+    display: inline-block;
+
+    font-size: 13px;
+
+    color: #0d6efd;
+
+    font-weight: 600;
+
+    margin-bottom: 2px;
+}
+
+
+/* Information Labels */
+
+.view-info-label {
+    font-size: 13px;
+
+    color: #6c757d;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+}
+
+.view-info-value {
+    font-size: 15px;
+
+    font-weight: 500;
+
+    color: #212529;
+}
+
+
+/* Health Section */
+
+.health-section-title {
+    color: #198754;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    border-bottom: 1px solid #e9ecef;
+
+    padding-bottom: 8px;
+
+    margin-top: 10px;
+}
+
+.health-section-title i {
+    margin-right: 6px;
+}
+
+
+/* Health Notes */
+
+.health-notes {
+    background-color: #fff8e1;
+
+    border: 1px solid #ffe69c;
+
+    border-radius: 10px;
+
+    padding: 14px;
+
+    color: #664d03;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* Horizontal Line */
+
+.view-member-card hr {
+    margin: 20px 0;
+
+    border-color: #e9ecef;
+}
+
+
+/* Bottom Actions */
+
+.bottom-actions {
+    margin: 25px;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+}
+
+
+/* Buttons */
+
+.btn {
+    border-radius: 8px;
+}
+
+
+/* Alert */
+
+#viewMembersContainer .alert {
+    border-radius: 12px;
+
+    padding: 18px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .view-page-header {
+        margin: 15px;
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .header-actions {
+        width: 100%;
+    }
+
+    .header-actions .btn {
+        flex: 1;
+    }
+
+    .view-section {
+        margin: 15px;
+
+        padding: 20px;
+    }
+
+    .members-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .member-view-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .bottom-actions {
+        margin: 15px;
+
+        justify-content: stretch;
+    }
+
+    .bottom-actions .btn {
+        flex: 1;
+    }
+
+}
