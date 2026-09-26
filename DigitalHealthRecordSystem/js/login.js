@@ -7,26 +7,26 @@ const authorizedUsers = [
     { 
         username: "ASHA001", 
         password: "123", 
-        ashaName: "Sunita Pawar",
-        villageName: "Dhargaon",
-        subPhcName: "Dhargaon Sub-Center",
-        phcName: "Main PHC"
+        ashaName: "Sample Ashaname",
+        villageName: "Sarangpuri",
+        subPhcName: "Dhasai Sub-Center",
+        phcName: "Shenave"
     },
     { 
         username: "ASHA002", 
         password: "123", 
-        ashaName: "Priya Jadhav",
-        villageName: "Katkari Vadi",
-        subPhcName: "Katkari Sub-Center",
-        phcName: "Main PHC"
+        ashaName: "Sample Ashaname",
+        villageName: "Thune",
+        subPhcName: "Lavale Sub-Center",
+        phcName: "Takipathar"
     },
     { 
         username: "ASHA003", 
         password: "123", 
-        ashaName: "Kavita Shinde",
-        villageName: "Vitbhatti Area",
-        subPhcName: "Vitbhatti Sub-Center",
-        phcName: "Main PHC"
+        ashaName: "Sample Ashaname",
+        villageName: "Kinhavali",
+        subPhcName: "Kinhavali PHC",
+        phcName: "Kinhavali"
     }
 ];
 
