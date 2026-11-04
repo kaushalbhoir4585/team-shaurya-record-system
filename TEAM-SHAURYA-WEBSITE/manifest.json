@@ -1,0 +1,18 @@
+{
+  "background_color": "#020617",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Team SHURYA - Digital Health Record System",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "short_name": "ASHA Record",
+  "start_url": "/index.html",
+  "theme_color": "#1e293b",
+  "categories": [
+    "education",
+    "health"
+  ],
+  "lang": "en",
+  "description": "Digital Health Record System For Cummunity Health Workers (ASHA) By Team SHAURYA (Kaushal)",
+  "id": "com.teamshaurya.ashasystem"
+}
